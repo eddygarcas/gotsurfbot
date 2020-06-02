@@ -1,1 +1,1 @@
-Web: bundle exec ruby <bot_main.rb>
+Web: bundle exec ruby got_surf_bot.rb
