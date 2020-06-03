@@ -16,6 +16,10 @@ class ConfigHelper
     config(:messages)[id]
   end
 
+  def self.get_bot_message(id)
+    config(:bot)[id]
+  end
+
   def self.log(message)
     @@logger.info(
         "GotSurfService #{message.from.username} id.#{message.from.id} at #{Time.now} from #{message.from.language_code}"
