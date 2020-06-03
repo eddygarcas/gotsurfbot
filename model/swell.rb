@@ -50,10 +50,10 @@ class Swell
   end
 
   def check_date
-    case DateTime.new(*date.split("-").reverse.map(&:to_i)).day
-    when (Date.today.day + 1)
+    case DateTime.new(*date.split("-").reverse.map(&:to_i))
+    when (Date.today + 1.day)
       yield 24
-    when (Date.today.day + 2)
+    when (Date.today + 2.day)
       yield 48
     else
       yield 0

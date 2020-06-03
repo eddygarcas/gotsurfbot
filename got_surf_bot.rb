@@ -7,6 +7,7 @@ require_relative 'comms/got_surf_service'
 
 Telegram::Bot::Client.run(ENV[:TELEGRAM_TOKEN.to_s]) do |bot|
   bot.listen do |message|
+    ConfigHelper.log(message)
     case message
 
     when Telegram::Bot::Types::InlineQuery

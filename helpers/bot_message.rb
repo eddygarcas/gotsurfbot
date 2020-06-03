@@ -33,7 +33,6 @@ class BotMessage < ConfigHelper
     else
       send_callback_location(bot, chatId, item)
     end
-
   end
 
   private
@@ -67,6 +66,8 @@ class BotMessage < ConfigHelper
     result
   end
 
+  private
+
   def self.create_inline_result(item, count = 1)
     Telegram::Bot::Types::InlineQueryResultArticle.new(
         type: 'article',
@@ -78,8 +79,6 @@ class BotMessage < ConfigHelper
         reply_markup: Telegram::Bot::Types::InlineKeyboardMarkup.new(inline_keyboard: item.to_inline_button)
     )
   end
-
-  private
 
   def self.text_message(item)
     Telegram::Bot::Types::InputTextMessageContent.new(
