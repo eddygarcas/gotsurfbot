@@ -51,9 +51,9 @@ class Swell
 
   def check_date
     case DateTime.new(*date.split("-").reverse.map(&:to_i))
-    when (Date.today + 1.day)
+    when (Date.today + 1)
       yield 24
-    when (Date.today + 2.day)
+    when (Date.today + 2)
       yield 48
     else
       yield 0
