@@ -9,7 +9,7 @@ class BotMessage < ConfigHelper
                            text: %Q{#{get_text_message(:start)}},
                            reply_markup: markup)
     else
-      bot.api.send_message(chat_id: chatId, text: %Q{#{get_text_message(:link)}})
+      #bot.api.send_message(chat_id: chatId, text: %Q{#{get_text_message(:link)}})
       bot.api.send_message(chat_id: chatId,
                            text: %Q{#{text}},
                            reply_markup: markup)
