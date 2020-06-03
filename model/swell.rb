@@ -24,6 +24,7 @@ class Swell
   end
 
   def to_inline_button
+    Telegram::Bot::Types::InlineKeyboardButton.new(text: "📍 Show spots", switch_inline_query_current_chat: "/start")
   end
 
   def to_s
