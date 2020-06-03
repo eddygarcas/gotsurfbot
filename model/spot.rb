@@ -24,7 +24,7 @@ class Spot
   end
 
   def to_inline_button
-    Telegram::Bot::Types::InlineKeyboardButton.new(text: "⚓ #{city.capitalize}", switch_inline_query_current_chat: point)
+    Telegram::Bot::Types::InlineKeyboardButton.new(text: "#{city.capitalize}", switch_inline_query_current_chat: point)
   end
 
   def to_s
