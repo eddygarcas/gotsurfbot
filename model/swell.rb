@@ -20,7 +20,7 @@ class Swell
   end
 
   def thumb_url
-    "https://www.fnmoc.navy.mil/wxmap_cgi/dynamic/N3_COAMPS_WMED/2020060200/n3_coamps_wmed10.swlwvht.0#{graph_hour 3}.wmed.gif"
+    "https://www.fnmoc.navy.mil/wxmap_cgi/dynamic/N3_COAMPS_WMED/2020060300/n3_coamps_wmed10.sgwvht.0#{graph_hour 3}.wmed.gif"
   end
 
   def to_inline_button
@@ -44,7 +44,7 @@ class Swell
   end
 
   def graph_hour divs = 6
-    h = (check_date {|ex| ex + hour.to_i}).divmod(divs)[0]*divs
+    h = (check_date + hour.to_i).divmod(divs)[0]*divs
     return "0#{h}" if h < 10
     h
   end
@@ -52,11 +52,11 @@ class Swell
   def check_date
     case DateTime.new(*date.split("-").reverse.map(&:to_i))
     when (Date.today + 1)
-      yield 24
+      return 24
     when (Date.today + 2)
-      yield 48
+      return 48
     else
-      yield 0
+      return 0
     end
   end
 
