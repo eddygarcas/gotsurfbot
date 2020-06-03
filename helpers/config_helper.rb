@@ -3,13 +3,13 @@ require 'logger'
 
 class ConfigHelper
 
-  @logger = Logger.new(STDOUT)
-  @logger.level = Logger::INFO
+  @@logger = Logger.new(STDOUT)
+  @@logger.level = Logger::INFO
 
-  @config_yaml = YAML.load_file 'config/config.yml'
+  @@config_yaml = YAML.load_file 'config/config.yml'
 
   def self.config(tag)
-    @config_yaml[tag]
+    @@config_yaml[tag]
   end
 
   def self.get_text_message(id)
@@ -17,7 +17,7 @@ class ConfigHelper
   end
 
   def self.log(message)
-    @logger.info(
+    @@logger.info(
         "GotSurfService #{message.from.username} id.#{message.from.id} at #{Time.now} from #{message.from.language_code}"
     )
   end
