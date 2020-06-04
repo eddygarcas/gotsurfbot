@@ -12,17 +12,17 @@ Telegram::Bot::Client.run(ENV[:TELEGRAM_TOKEN.to_s]) do |bot|
 
     when Telegram::Bot::Types::InlineQuery
       items = GotSurfService.new.get_swell(message.query)
-      BotMessage.send_message(bot, message.id, items, true)
+      BotMessage.send_query_response(bot, message.id, items, true)
 
 
     when Telegram::Bot::Types::Message
       if message.text.downcase.include? "help"
-        BotMessage.send_bot_message(bot, message.chat.id, BotHelper.inline_markup, ConfigHelper.get_text_message(:help))
+        BotMessage.send_bot_response(bot, message.chat.id, nil, ConfigHelper.get_text_message(:help))
       end
       if message.text.downcase.include? "start"
-        BotMessage.send_bot_message(bot, message.chat.id, BotHelper.inline_markup)
+        BotMessage.send_bot_response(bot, message.chat.id, BotHelper.inline_markup)
       else
-        BotMessage.send_bot_message(bot, message.chat.id, BotHelper.inline_markup,ConfigHelper.get_bot_message(:list))
+        BotMessage.send_bot_response(bot, message.chat.id, BotHelper.inline_markup,ConfigHelper.get_bot_message(:list))
       end
     end
   end

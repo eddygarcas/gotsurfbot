@@ -2,21 +2,17 @@ require_relative 'config_helper'
 
 class BotMessage < ConfigHelper
 
-
-  def self.send_bot_message(bot, chatId, markup, text = nil)
+  def self.send_bot_response(bot, chatId, markup = nil, text = nil)
     if text.nil?
-      bot.api.send_message(chat_id: chatId,
-                           text: %Q{#{get_text_message(:start)}},
-                           reply_markup: markup)
+      bot.api.send_message(chat_id: chatId,text: %Q{#{get_text_message(:start)}},reply_markup: markup)
+    elsif markup.nil?
+      bot.api.send_message(chat_id: chatId, text: %Q{#{text}})
     else
-      #bot.api.send_message(chat_id: chatId, text: %Q{#{get_text_message(:link)}})
-      bot.api.send_message(chat_id: chatId,
-                           text: %Q{#{text}},
-                           reply_markup: markup)
+      bot.api.send_message(chat_id: chatId,text: %Q{#{text}},reply_markup: markup)
     end
   end
 
-  def self.send_message(bot, chatId, item = nil, inline = false)
+  def self.send_query_response(bot, chatId, item = nil, inline = false)
     if item.nil?
       bot.api.send_message(chat_id: chatId, text: %Q{#{get_text_message(:error)}})
     else
