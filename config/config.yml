@@ -1,11 +1,10 @@
 :fields:
 :messages:
   :start: "🌊 GotSurf Bot.\nCheck https://github.com/eddygarcas/gotsurfbot for updates\nSelect one surf spot available..."
-  :error: "Oops! Something went wrong, please press /start button again."
-  :help: "Use inline buttons below here or type the inline command @GotSurfBot in any chat, the bot will prompt all surf spots available."
-  :inline: "Select one surf spot available"
-  :link: "Author @eddygarcas Github https://github.com/eddygarcas/gotsurfbot"
+  :error: "🤖 Oops! Something went wrong, please press /start button again."
+  :help: "ℹ️ Use inline buttons below here or type the inline command @GotSurfBot in any chat, the bot will prompt all surf spots available."
+  :inline: "🔘 Select one surf spot available"
+  :link: "🧑‍💻 Author @eddygarcas Github https://github.com/eddygarcas/gotsurfbot 🎨 Bot Icon made by http://www.freepik.com"
   :credit:
 :bot:
   :list: "🤖 Hey! check out spots available..."
-  #"<div>Icons made by <a href="http://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>"

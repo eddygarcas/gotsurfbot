@@ -16,7 +16,7 @@ Telegram::Bot::Client.run(ENV[:TELEGRAM_TOKEN.to_s]) do |bot|
 
 
     when Telegram::Bot::Types::Message
-      if message.text.eql? "Help"
+      if message.text.downcase.include? "help"
         BotMessage.send_bot_message(bot, message.chat.id, BotHelper.inline_markup, ConfigHelper.get_text_message(:help))
       end
       if message.text.downcase.include? "start"
